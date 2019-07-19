@@ -130,9 +130,9 @@
 
    1. push
 
-      1. git push origin --delete <远程分支名字> 
+      1. git push origin --delete <远程分支名字> 删除远程分支
 
-      2. git branch -d dev  不能删除当前的分支
+      2. git branch -d dev  删除本地分支（不能删除当前的分支）
 
       3. git push origin dev
 
