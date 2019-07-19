@@ -132,7 +132,7 @@
 
       1. git push origin --delete <远程分支名字> 
 
-      2. git branch -d dev  不能删除自己
+      2. git branch -d dev  不能删除当前的分支
 
       3. git push origin dev
 
