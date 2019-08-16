@@ -1,0 +1,171 @@
+TCP/IP详解
+
+
+>netstat -aon | findstr "80"
+         Proto  Local Address          Foreign Address        State            PID
+         ====  ============      ==============  ==========  ======
+         TCP    0.0.0.0:80                    0.0.0.0:0                LISTENING      1688
+      >	askkill /pid 1688 /F
+
+
+
+30830830
+
+1504412124   025518
+1504405314   202348
+
+
+杠铃推举  哑铃推举  上斜飞鸟  杠铃身前提拉
+
+商品出库修改过的文件
+pojo: TbExportgoodsDetailFind.java   TbExportGoodsMamage.java              ExportGoodsMamageFindArgs.java      TbExportGoods.java    TbExportGoodsExample.java
+dao: TbExportGoodsMamageMapper.xml  TbExportgoodsDetailFindMapper.xml   	
+         TbExportGoodsMapper.java/xml
+css: TEXportGoods.css
+db: tb_export_goods
+
+
+never be such a kind of man who listens half, understands quarter, thinks zero, and then reacts double.
+
+ 
+
+* : 表示当前目录所有文件，也可以是某个文件名
+
+-r 是递归查找
+
+-n 是显示行号
+
+-R 查找所有文件包含子目录
+
+-i 忽略大小写
+
+
+
+长期（基础）：
+javase       1
+数据结构    1
+jvm           1
+计算机网络原理   TCP/IP协议，HTTP协议，   1
+数据库   数据库原理
+操作系统原理
+大数据
+
+
+
+短期（技术）：
+spring 
+springmvc
+dubbo zookeeper 
+shiro solr
+nginx+vdftpd
+mycat
+redis 
+分布式技术
+网络编程
+多线程编程
+3个微服务
+vue.js
+小程序
+
+
+安卓app弄好了，接下来等把后台服务器出库url对应的pojo的经办人等字段设置默认值
+
+项目学到在impl层配置dubbo和spring配置文件
+
+dubbo zookeeper 
+nginx+vdftpd
+redis 
+shiro solr
+mycat
+
+
+
+声明式事务含义面试要问
+
+
+
+小程序看到
+指南--小程序框架--逻辑层--注册小程序
+
+
+
+
+1. yum
+
+2. dhcp
+
+//3. java环境变量作用
+
+4. Tomcat插件是怎么做到的
+
+5. 编译和打包运行所做的事情
+
+1.搞清楚java配置的环境变量是什么意思
+
+2.搞清楚jdk目录下的各个文件夹都是啥
+
+3.复习linux命令
+
+4.maven配置文件的server标签
+
+5.new ClassPathXmlApplicationContext是什么鬼
+
+6.IOC和DI的原理
+
+//7.gradle和maven
+
+8.mybatis的DataSource
+
+9.ps -ef | grep nginx
+  lsof -i :80 查看端口被什么程序占用
+  netstat -ntlp
+
+10.error_log off并不能关闭日志记录功能，它将日志文件写入一个文件名为off的文件中，如果你想关闭错误日志记录功能，应使用以下配置：error_log /dev/null crit;（把存储位置设置到Linux的黑洞中去 ）。
+
+11.vim /查找
+
+12.Linux查找含有某字符串的所有文件
+grep -rn "hello,world!" *
+
+13.centos7 firewalld的基本使用
+启动： systemctl start firewalld
+关闭： systemctl stop firewalld
+查看状态： systemctl status firewalld 
+开机禁用  ： systemctl disable firewalld
+开机启用  ： systemctl enable firewalld
+查看已经开放的端口：
+firewall-cmd --list-ports  
+ 开启端口
+firewall-cmd --zone=public --add-port=80/tcp --permanent  
+--zone #作用域
+--add-port=80/tcp #添加端口，格式为：端口/通讯协议
+--permanent #永久生效，没有此参数重启后失效
+
+14. tar -zxvf -C path
+
+15.maven阿里云镜像，中央仓库，私服都有什么关系
+
+输入输出流
+
+阿里云邮箱gunners_k@aliyun.com
+
+
+
+1直塞
+3传球
+4射门
+9--v
+
+
+java基础
+线程
+并发
+数据库存储过程云云，优化，分库分表，读写分离
+redis
+zookeeper
+高淇第三季JVM
+
+
+
+
+
