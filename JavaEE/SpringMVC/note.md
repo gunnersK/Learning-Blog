@@ -7,3 +7,6 @@
    因为在web.xml中，配置的DispatcherServlet的<url-pattern>/</url-pattern>拦截的是所有资源，包括静态资源，如果不配置resources直接访问静态资源的话他会跑到controller去，所以要在springmvc.xml里面配置这个，就能直接访问到静态资源了
    
 3. InternalResourceViewResolver视图解析器自动加前后缀。是什么情况下才会自动加？
+
+4.springmvc的xml文件中用<context:component-scan base-package="com.yjb"/>扫controller包时，不用加通配符，直接写包名就好，
+  例如com.yjb.*或com.yjb.*Controller之类的
