@@ -10,3 +10,4 @@
 
 4.springmvc的xml文件中用<context:component-scan base-package="com.yjb"/>扫controller包时，不用加通配符，直接写包名就好，
   例如com.yjb.*或com.yjb.*Controller之类的
+ 
