@@ -1,4 +1,13 @@
-# 一、相关知识
+# 一、java多线程并发领域有三大块内容：
+
+   1. synchronizer（同步器）
+   
+   2. 同步容器（concurrentHashMap之流）
+   
+   3. 线程池
+
+
+# 二、相关知识
 
    1. synchronized
    
@@ -206,7 +215,7 @@
    
    3. wait/notify能完成的很多，但是能不要用就不要用，太麻烦，需要非常小心，在多线程中用就相当于用汇编在编程一样
    
-# CountDownLatch
+# 五、CountDownLatch
 
    1. 就是一个门闩，await()方法相当于上门闩，给一个初始值，每调用一次countDown()方法值减1，当初始值变为0时，门闩打开
             
