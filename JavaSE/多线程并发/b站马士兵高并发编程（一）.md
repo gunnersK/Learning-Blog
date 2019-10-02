@@ -1,6 +1,12 @@
 # 一、相关知识
 
-   1. synchronized方法被一个线程执行时，其他线程可以执行非synchronized方法，不需要那把锁，不影响
+   1. synchronized
+   
+      1. synchronized方法被一个线程执行时，其他线程可以执行非synchronized方法，不需要那把锁，不影响
+   
+      2. synchronized锁定的是对象，不是代码
+      
+      3. 如果用synchronized修饰一个成员方法，那他锁住的是this；如果修饰一个static方法，那个锁住的是该类的class对象
 
    2. 
       ```
@@ -191,6 +197,15 @@
             3. **总结：** 在一个线程尚未完成把修改的volatile变量 **更新进主存之前**，另一个线程**已经获得**该volatile变量的值，并且做出修改，那就会出现不能保证原子性的情况
 
             3. 这种情况就要使用synchronized了，先让线程a把v加完到30，线程b再操作 三个程序12-14
+            
+# 四、wait/notify
+
+   1. 线程之间通信用的，wait释放锁，notify不释放锁，所以wait必须在synchronized代码块里面调用
+   
+   2. 线程notify完了之后自己得再做wait释放锁，让其他线程继续执行
+   
+   3. wait/notify能完成的很多，能不要用就不要用，太麻烦，就相当于用汇编在编程一样
+            
 
 
 
