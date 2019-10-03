@@ -278,5 +278,45 @@
 			}
 		}
       ```
+      
+# 三、Condition      
+  （二）04
   
+# 四、ThreadLocal--线程本地变量
+
+   1. 线程私有的变量，可以看做每个线程从主内存复制一份变量下来，自己改，不会影响到其他线程的变量，效率较高
+   
+   2. 代码
+   
+      ```
+         public class ThreadLocal01 {
+	
+			ThreadLocal<Person> tl = new ThreadLocal<>();
+
+			public static void main(String[] args) {
+				ThreadLocal01 tl1 = new ThreadLocal01();
+
+				new Thread(new Runnable() {
+					public void run() {
+						try {
+							TimeUnit.SECONDS.sleep(2);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+						System.out.println(tl1.tl.get());  //到时候这里会输出null
+					}
+				}).start();
+
+				new Thread(new Runnable() {
+					public void run() {
+						tl1.tl.set(new Person());
+					}
+				}).start();
+			}
+
+			static class Person{
+				String name = "zhangsan";
+			}
+		}
+      ```
      
