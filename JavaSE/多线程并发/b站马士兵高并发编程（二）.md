@@ -207,6 +207,76 @@
       
 # 二、生产者消费者题
 
-   1. wait在99.9%的情况下都和while一起使用，不要和if一起使用  wait完了之后如果继续执行，那其他线程中途往里插了一个数据，就会报错了，所以不能继续执行，需要回去while再判断一下，
+   1. wait在99.9%的情况下都和while一起使用，不要和if一起使用  
+   
+   2. 如果用if，当两个线程一起wait，阻塞在那里，这时別的线程notifyAll了，这俩线程都被叫醒了，但是线程1快一点，先拿到锁，先继续执行，线程2还是阻塞在 那里，等线程1代码跑完，释放锁，线程2拿到锁继续跑，但这时有可能线程2的if条件在线程1跑完代码之后已经不成立了，如果线程2继续跑的话就会出错了，所以需要把if换成while，让线程2需要继续跑的时候再回去while检测一下条件是否成立。
+   
+   3. 要用notifyAll而不是notify，如果只叫醒一个线程的话很可能又是叫醒生产者线程，然后她一看满了，又wait，又没通知消费者执行，程序就卡了
+   
+   4. synchronized/wait/notify一起用，lock/await/singleAll一起用
+   
+   5. 代码：面试题：写一个固定容量的同步容器，拥有put和get方法，能支持2个生产者线程和10个消费者线程的阻塞调用
+   
+      ```
+         public class MyContainer1<T> {
+
+			final private List<T> list = new ArrayList<>();
+
+			synchronized void put(T t){
+				while(list.size() == 10){
+					try {
+						this.wait();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+
+				list.add(t);
+				System.out.println(Thread.currentThread().getName()+" put--"+list.size());
+				this.notifyAll();
+			}
+
+			synchronized T get(){	
+				while(list.size() == 0){
+					try {
+						this.wait();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+
+				T t = list.get(list.size() - 1);
+				list.remove(t);
+				System.out.println(Thread.currentThread().getName()+" get--"+list.size());
+				this.notifyAll();
+
+				return t;
+			}
+
+			public static void main(String[] args) {
+				MyContainer1<String> mc = new MyContainer1<>();
+
+				for(int i = 0; i < 10; i++){
+					new Thread(new Runnable() {
+						public void run() {
+							for(int j = 0; j < 5; j++){
+								mc.get();
+							}
+						}
+					}, "c"+i).start();
+				}
+
+				for(int i = 0; i < 2; i++){
+					new Thread(new Runnable() {
+						public void run() {
+							for(int j = 0; j < 25; j++){
+								mc.put(Thread.currentThread().getName());
+							}
+						}
+					}, "p"+i).start();
+				}
+			}
+		}
+      ```
   
      
