@@ -148,12 +148,41 @@
           }
          ```	 
 	 
-   4. ReentrantLock可以s合订公平锁，即哪个线程等的时间长，就能得到锁
+   4. ReentrantLock可以指定公平锁，即哪个线程等的时间长，就能得到锁
    
       1. 代码
    
          ```
-            ds
+            public class ReentrantLock4 {
+	
+				Lock lock = new ReentrantLock(true);  //这里的true参数是把lock指定为公平锁
+
+				void m1(){
+					for(int i = 0; i < 1000; i++){
+						try{
+							lock.lock(); 
+							System.out.println(Thread.currentThread().getName()+"-start");
+						} finally {
+							lock.unlock();
+						}
+					}
+				}
+
+				public static void main(String[] args) {
+					ReentrantLock4 r3 = new ReentrantLock4();
+					new Thread(new Runnable() {
+						public void run() {
+							r3.m1();
+						}
+					}).start();
+					new Thread(new Runnable() {
+						public void run() {
+							r3.m1();
+						}
+					}).start();
+				}
+
+			}
          ```
 	 
       2. 上面代码的执行结果一般都是线程1执行一次，紧接着线程2执行一次，然后又是线程1，然后线程2....一直到for循环结束
