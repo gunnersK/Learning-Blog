@@ -204,5 +204,9 @@
       3. ReentrantLock比synchronized灵活（tryLock）
       
       4. synchronized默认是不公平锁，ReentrantLock可以指定公平锁      
+      
+# 二、生产者消费者题
+
+   1. wait在99.9%的情况下都和while一起使用，不要和if一起使用  wait完了之后如果继续执行，那其他线程中途往里插了一个数据，就会报错了，所以不能继续执行，需要回去while再判断一下，
   
      
