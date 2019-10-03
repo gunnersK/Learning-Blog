@@ -55,7 +55,7 @@
 
           }
           ```
-     
+     	
    2. tryLock
    
       1. 线程可以指定在等一把锁多长时间后就不等了，继续执行，而不是一直像synchronized一样阻塞在那里等，体现了比synchronized灵活的地方
@@ -148,7 +148,44 @@
           }
          ```
      
-   4. ReentrantLock指定公平锁，谁等时间长，谁得到锁
+   4. ReentrantLock可以公平锁，即哪个线程等的时间长，就能得到锁
+   
+      1. 代码
+      
+         ```
+	    public class ReentrantLock4 {
+	
+		Lock lock = new ReentrantLock(true);  //传个true参数，把这个锁指定为公平锁
+
+		void m1(){
+			for(int i = 0; i < 1000; i++){
+				try{
+					lock.lock(); 
+					System.out.println(Thread.currentThread().getName()+"-start");
+				} finally {
+					lock.unlock();
+				}
+			}
+		}
+
+		public static void main(String[] args) {
+			ReentrantLock4 r3 = new ReentrantLock4();
+			new Thread(new Runnable() {
+				public void run() {
+					r3.m1();
+				}
+			}).start();
+			new Thread(new Runnable() {
+				public void run() {
+					r3.m1();
+				}
+			}).start();
+		}
+
+	}
+	 ```
+	 
+      2. 上面代码的执行结果一般都是线程1执行一次，紧接着线程2执行一次，然后又是线程1，然后线程2....一直到for循环结束
    
    5. ReentrantLock和synchronized的区别
   
