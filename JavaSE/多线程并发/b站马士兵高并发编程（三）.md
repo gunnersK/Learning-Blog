@@ -33,7 +33,7 @@
       
       4. offer()：放进去，不会抛异常，会返回boolean
       
-         offer()还有一种是按时间段阻塞的，看下面
+         offer()还有一种是按时间段阻塞的，看下面ArrayBlockingQueue的代码
    
    2. 高并发时用两种队列
    
@@ -103,7 +103,7 @@
                //		strs.put("a");  满了就等待，线程阻塞
                //		strs.add("a");  满了报异常
                //		System.out.println(strs.offer("a"));  满了就退出，也不加进去
-                     System.out.println(strs.offer("a", 1, TimeUnit.SECONDS));  //在规定时间内，满了就退出
+                     		System.out.println(strs.offer("a", 1, TimeUnit.SECONDS));  //在规定时间内，满了就退出
 
                   }
                ```
