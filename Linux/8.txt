@@ -1,0 +1,71 @@
+A.pe -ls  列出进程
+
+B. 
+    1.cat file | grep "string"  先打开后查找(动态文件)
+       对打开的文件中的内容查找包含有string字符的行
+    2.grep "string" file
+       对文件查找包含有string字符的行
+
+    3.grep只能搜索并让用户知道文件中是否包括相关的字符，但是编辑。如果需要搜索，需要在vi中搜索  
+      a.搜索命令
+        / 搜索的字符串，搜索到相关的内容以后，可以按n，跳转到下一个被搜索到的位置
+   
+        搜索并替换字符串
+        :%s/ + 搜索的字符串/ + 替换后的字符串/g|c
+        :n1:n2s/ + 搜索的字符串/ + 替换后的字符串/g|c     n1n2是行数   s代表search
+
+        多行注释：
+            :n1,n2s/ ^(代表行首) /#/g
+        取消多行注释
+            :n1,n2s/^#//g
+        包含/的注释 使用转义字符，多加个\
+            :n1,n2s/^/\/\//g
+        取消包含/的注释
+            :n1,n2s/^\/\///g
+
+C.        rwx             r-x                   r-x
+      文件所属者   文件所属组          其他人
+
+
+           文件                     文件夹
+   r      cat,more                  ls
+   w     vi,echo                 mkdir,touch对文件夹进行文件的创建，删除
+   x      ./file  执行             cd  进入目录
+
+
+
+
+D.
+    复习 ls -ld   只看目录本身信息
+
+    修改文件所有者
+       change owner
+       chown 用户名  file/path
+
+    修改文件所属组
+       chgrp
+       chgrp 所属组名 file/path
+
+    获得所有权限 
+    chmod 777  file/path
+
+    Linux安装oracle
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

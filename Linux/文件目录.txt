@@ -1,0 +1,234 @@
+A.列出文件目录
+    a.ls
+    
+    b.ls -a
+    
+    c.ls -l   也可直接用 ll 命令
+
+    d.ls -lh  -h将文件大小以kb,mb为单位来表示
+
+    e.ls -lih file    -i表示输出inode信息
+   
+    f.ls /path
+   
+    g.-d   这个选项是针对目录的，通常和-l并用写成-ld
+
+    h.要显示多个目录的文件，直接在参数中写上相应的目录即可，目录与目录之间用空格       分隔，如果不加目录，就会显示当前工作目录下的文件
+
+
+
+
+B.切换、打印目录
+    a.cd  
+    b.cd /file
+    c.pwd 
+    d.  . or ..
+
+
+
+
+C.常用目录
+    /根目录
+    /bin  存放可以执行的文件，所有用户都可以使用
+    /sbin  存放可以执行的文件，目录中的文件只有管理员用户才能使用  
+    /boot  存放系统启动要运行的文件
+    /root  超级用户的家目录
+    /home  存放普通用户的家目录
+    /usr  
+    /usr/bin    存放可执行文件 
+    /usr/sbin   存放可执行文件
+
+
+
+
+D.创建文件/目录    mkdir
+    a.mkdir -p   创建一串级联目录
+
+    b.touch  file   创建文件
+       tips：Linux中的文件后缀名不重要
+
+
+
+
+E.删除文件/目录
+    a.rmdir    只能删除目录，不常用。删除非空目录时会报错
+    
+    b.rm    目录文件都能删除，很常用
+         rm -r    能删除非空目录    如果删除不存在的目录，会报错
+         rm -f    删除不存在的文件或目录   如果删除存在的目录，会报错
+   
+    c.rm -rf ./*   删除当前目录下的所有文件和文件夹   
+
+
+
+
+F.复制文件/目录
+   a.复制文件  
+      复制单个文件   cp  path1  path2
+      复制多个文件   cp  file1 file2 path 
+
+   b.复制目录
+      复制整个目录   cp -rf path  path       
+                            加了-r选项才能复制目录
+                            -f表示强制覆盖已存在的文件
+  
+   c.复制目录下的所有file   cp -rf  path/*  path
+	
+   d.复制的同时更改文件名   cp file path/新文件名
+
+
+
+
+G.移动/重命名文件/目录
+    a.移动 mv  path/file   path/file
+ 
+    b.重命名 mv  path/file(old)  path/file(new)
+
+
+
+
+H.输出内容
+   echo   "string"  在屏幕中输出内容
+   echo   "string"   >> file  把输入的内容追加到文件中
+   echo   "string"   > file    将输入的内容覆盖原来文件的内容
+
+
+
+
+I.显示文件的内容
+    a.cat  file
+       -b 显示行数
+       cat命令对于比较少的文件使用，通常一屏能显示完
+    b.more (适合查看大文件，不能向前显示)
+        enter  按行显示
+        space  按屏显示
+        q  退出more命令
+    c.less
+         上下按键，翻页按键，q退出命令
+
+
+
+
+J.vi命令  
+    用来进入修改....的模式
+    退出方法：shift + z + z 或者 先esc，再shift+冒号，最后q!回车
+
+
+
+K.链接文件   相当于Windows的快捷方式
+   a.软链接文件  
+       创建软连接文件   
+            ln -s 原文件名 链接文件名
+       tips：如果用echo往软链接文件写东西，则实际会写到它指向的源文件中
+
+   b.硬链接文件
+       创建硬连接文件
+            ln 原文件名 链接文件名     与软链接相比就是去掉个-s
+      tips：硬链接文件与源文件有同样的inode，同样的大小，同样的内容相当于被复制了一份
+               如果用echo往硬链接文件或源文件写东西，则两个文件都会被改变
+
+
+
+
+L.查找
+    格式：find   path  选项   搜索参数
+    查找到文件之后使用-exec 命令 {} \;  执行后续命令   "命令"即是之前学过的那些
+
+
+    选项和搜索参数
+    -name  按名字查找，精确查询，搜索文件名是 .... 的文件/目录
+                搜索参数   a.* 表示所有字符
+                                b.？表示一个字符
+            举例： find . -name *init?
+
+    -type    按文件类型查找
+            举例： find . type l - exec ls -lih {} \;   表示查找链接文件并输出
+
+    -size 按文件大小查找
+           a.搜索参数：+-100k    +号表示大于，-表示小于
+                  举例：find . -size +600k -exec cp {} file \;  file表示往文件file中复制
+           tips：Linux中文件大小显示是以块为单位(b, block)，每一块大小为512kb
+                    ls -lh  则将文件大小以kb,mb为单位来表示  
+
+           b.-a  表示and
+              -o  表示or
+                   举例：find . -size +100k -a -size -200k  查找大于100k且小于200k的文件
+
+    -time
+         a(access)	c(change)	m(modify)
+         -atime	-ctime		-mtime      按天找  
+         -amin	-cmin		-mmin       按分钟找
+             举例：find . -atime -2   查找被-a的时间小于两天的文件
+                       find . -mtime +3  查找被-m的时间大于三分钟的时间
+
+tips：-ctime 和 -mtime 的区别
+-ctime是文件最近状态（status）的改变时间。这里的status指权限，用户，组，修改时间。如果这些东西改变，那么ctime会随之改变
+-mtime是文件最近改动的时间，当你对文件改动修改内容时会改变这个时间。
+
+
+
+
+M.压缩与解压
+   1.压缩  gzip 
+              a.格式：gzip 待压缩的文件
+              b.压缩后生成gz文件，并将原文件删除
+              c.不能对目录进行压缩 
+              
+   2.解压  gunzip
+
+
+
+
+N.tar命令    将文件或目录进行打包
+   a.格式： tar 选项 tar包名 文件/目录列表
+
+   b.选项：
+        -c 创建tar包时用(创建备份文件)
+        -f 要求指定tar包名(指定备份文件)
+        -v 显示命令执行(解压)的过程
+        -x 解tar包时使用
+
+   c.通常是这么写：
+      打包：tar -cvf 包名 文件/目录列表  通常加tar后缀
+      解包：tar -xvf 包名
+
+   d.重点：一般是用gzip/gunzip命令对tar包进行压缩和解压，压缩会生成file.tar.gz文件
+               再多加一个 -z选项可以直接实现上述功能
+               打包并压缩：tar -zcvf 包名 文件/目录列表  通常加tar后缀
+               解包并解压：tar -zxvf 包名
+
+
+
+
+O.bzip2  压缩文件      压缩能力相对gzip强
+   bunzip2  解压文件
+  
+
+
+
+#其他命令
+    a.df (disk free)   查看磁盘剩余空间
+
+    b.每个命令都有   -v   选项，显示出文件操作过程
+
+    c.ctrl+c 打断当前程序运行
+
+    d.clear  清屏
+
+    e.df (disk free)   查看磁盘剩余空间
+
+    f.which  命令    输出命令的路径
+
+
+    
+
+
+
+
+
+
+
+
+
+
+

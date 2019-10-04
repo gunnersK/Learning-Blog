@@ -1,0 +1,144 @@
+A.与用户账号相关的文件
+    a./etc/passwd 保存账号的信息的文件
+      root:x:0:0:root:/root:/bin/bash
+      用户名:密码占位符:UID:GID:注释:用户家目录:shell
+      三种用户
+      超级用户 root(UID=0)
+      普通用户(UID=500~60000)
+      伪用户(UID=1~499) 系统服务自动创建的用户，这些用户通常无法登录系统
+
+    b./etc/shadow 保存与用户密码相关信息的文件
+
+
+
+
+
+B.与组相关的文件
+    a./etc/group
+      gunners_K:x:500
+      组名:密码位:组ID:用户列表
+   
+    b./etc/gshadow 保存与组密码相关信息的文件
+
+
+
+
+
+C.组的创建
+   groupadd 选项 组id 组名
+   -g 指定组的ID号   0-499系统账号所用  500以后用户可以指定
+
+   例子：创建一个组g161，gid为666
+             groupadd -g 666 g161
+
+
+
+
+
+D.用户的创建
+当创建用户时，如果没有为用户指定所属组，系统就会以用户名为组名创建一个组
+   a.useradd 选项 用户名
+      -g 指定所属组
+      -G 指定附加组
+      -u 指定用户id
+      -c 添加注释
+      -p  设定初始密码
+      例子：创建用户zhangsan，属于g161，附属于g162，用户id:888
+                useradd -g g161 -G g162 -u 888
+
+   b.每创建一个目录，系统都会在/home目录下创建一个用户家目录  ls /home
+
+   c.切换用户
+      su - 用户名
+      切换回root直接输入exit即可
+
+   d.id命令:显示当前用户信息
+      groups命令:显示当前用户的组信息
+
+   e.给用户设置密码
+      root用户可以通过su切换到任一个用户，普通用户切换到其他用户必须提供密码
+      (1)root用户对其他用户设置密码(密码可以是任何内容)
+          passwd 用户名
+      (2)用户对自己设置密码(密码必须满足Linux的密码设置规则，且该账号已有密码)
+          passwd 
+
+
+
+
+
+E.更改、删除组
+   a.更改组
+      groupmod 选项 新组名 旧组名
+      -g 
+      -n 更改组名
+
+   b.删除组
+      groupdel 组名
+
+
+
+
+
+F.更改、删除用户
+   a.用户的更改
+      usermod 新用户名 旧用户名
+      选项在useradd的而基础上增加了以下几个：
+
+      -l 修改用户名
+      把zhangsan改为zs
+      usermod -l zs zhangsan
+
+      -L/-U锁定/解锁用户(不能被远程登录)
+      usermod -L/-U 用户名
+
+   b.删除用户
+      userdel 用户名
+
+
+
+
+G.        rwx             r-x                   r-x
+      文件所属者   文件所属组          其他人
+
+
+           文件                     文件夹
+   r      cat,more                  ls
+   w     vi,echo                 mkdir,touch对文件夹进行文件的创建，删除
+   x      ./file  执行             cd  进入目录
+
+
+
+
+H.
+    复习 ls -ld   只看目录本身信息
+
+    修改文件所有者
+       change owner
+       chown 用户名  file/path
+
+    修改文件所属组
+       chgrp
+       chgrp 所属组名 file/path
+
+    获得所有权限 
+    chmod 777  file/path
+
+    粘着位(Sticky)作用：使得任何人可以对目录进行文件创建，但是只有文件的所属者和root可以对文件进行删除
+         用法：chmod o+t  path
+                   chmod 1777  path
+
+
+
+
+I.w命令
+   load average 表示过去1，5，10分钟系统的负载
+
+
+
+
+
+
+
+
+  
+
