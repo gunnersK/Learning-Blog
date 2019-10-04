@@ -14,6 +14,44 @@
          3. 高并发：concurrenthashmap
          
          4. 高并发+排序：concurrentskiplistmap
+	 
+      3. 代码：
+      
+         ```
+	    	public class T01_ConcurrentMap {
+	
+				public static void main(String[] args) {
+			//		Map<String,String> map = new HashMap<>();
+			//		Map<String,String> map = new ConcurrentHashMap<>();
+			//		Map<String,String> map = new Hashtable<>();
+					Map<String,String> map = new ConcurrentSkipListMap<>();
+
+					CountDownLatch latch = new CountDownLatch(100);
+					Random r = new Random();
+					long start = System.currentTimeMillis();
+					for(int i = 0; i < 100; i++){
+						new Thread(new Runnable() {
+							public void run() {
+								for(int i = 0; i < 10000; i++){
+									map.put("a"+r.nextInt(10000), "a"+r.nextInt(10000));
+								}
+								latch.countDown();
+							}
+						}).start();
+					}
+
+					try {
+						latch.await();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+					long end = System.currentTimeMillis();
+					System.out.println(end - start);
+				}
+			}
+		 ```
+      
          
 2. CopyOnWriteList(写时复制) 写慢读快  适合写的很少，读的特别特别多。赋值一份出来再新增元素  读不用加锁
 
