@@ -101,7 +101,9 @@
       
          1. 成因：把两个session都设置为set session transaction isolation level read committed，都开启事务，session1使用当前读的方式查询一下，并加了一个共享锁，查出来20条记录，紧接着session2添加一条数据，发现在这个级别下，session2可以操作成功，提交，回到session1，给表的某个字段全部更新为'a'，这时发现，竟然有21行受影响，本来是对20条数据进行更新，现在变成了21条，这就出现了幻读
          
-         2. 解决：把两个session都设置为set session transaction isolation level **serializable(默认事务隔离级别)**，都开启事务：start transaction，重复以上操作，从session1的角度查询一下，查出来20条，再切换到session2，添加一条数据，这时发现被阻塞了，需要等session1提交或回滚之后才能执行插入操作，这是因为serializable级别下，所有操作都会加锁，这就避免了幻读的发生
+            * ps：因为mysql在repeatable read级别下也可以避免幻读，所以要用read committed进行测试
+         
+         2. 解决：把两个session都设置为set session transaction isolation level **serializable(最高事务隔离级别)**，都开启事务：start transaction，重复以上操作，从session1的角度查询一下，查出来20条，再切换到session2，添加一条数据，这时发现被阻塞了，需要等session1提交或回滚之后才能执行插入操作，这是因为serializable级别下，所有操作都会加锁，这就避免了幻读的发生
          
 
 4. InnoDB可重复读隔离级别下如何避免幻读
