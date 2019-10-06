@@ -81,9 +81,9 @@
 
    1. 事务并发访问引起的问题
    
-      1. 更新丢失：mysql所有事务隔离级别在数据库层面上均可避免
+      1. 更新丢失--READ UNCOMMITTED：READ UNCOMMITTED事务隔离级别以上避免(mysql所有事务隔离级别在数据库层面上均可避免)
       
-      2. 脏读：一个事务读到另一个事务未提交的更新数据，可以在READ-COMMITTED事务隔离级别以上避免
+      2. 脏读--READ-COMMITTED：一个事务读到另一个事务未提交的更新数据，可以在READ-COMMITTED事务隔离级别以上避免
       
          1. 查看当前隔离级别：select @@tx_isolation
          
@@ -91,13 +91,13 @@
          
          3. 解决：把两个session都设置为set session transaction isolation level **read committed**，都开启事务：start transaction，session1更新字段为2但不提交，并查询，session2查询，结果字段不是session1更新后的2，而是原来的1，这时session1回滚，字段变回原来的2，这时就算session2仍按字段是1的值去更新并提交，也不是脏读了
          
-      3. 不可重复读：事务A多次读取同一数据，事务B在事务A读取数据的过程中，对数据进行了更新并提交，导致事务A多次读取同一数据的结果不一致，REPEATABLE-READ事务隔离级别以上可避免
+      3. 不可重复读--REPEATABLE-READ：事务A多次读取同一数据，事务B在事务A读取数据的过程中，对数据进行了更新并提交，导致事务A多次读取同一数据的结果不一致，REPEATABLE-READ事务隔离级别以上可避免
       
          1. 成因：把两个session都设置为set session transaction isolation level read committed，都开启事务，从session1的角度看，先读一次字段，值是1，再切换到session2的角度，把字段更新为2并提交，再切换回session1，再读一次字段，发现值是2，和上次的数据不一致，这就发生了不可重复读
          
          2. 解决：把两个session都设置为set session transaction isolation level **repeatable read(默认事务隔离级别)**，都开启事务：start transaction，从session1的角度看，先读一次字段，值是1，再切换到session2的角度，把字段更新为2并提交，再切换回session1，再读一次字段，发现值还是1，即尽管session2做出修改并提交了之后，session1读到的值还是原来未提交的值，这就避免了不可重复读的情况。但是这个时候session1对字段做出修改，是在字段最新的值2之上进行修改的，这也不会导致数据不一致的情况
          
-      4. 幻读：事务A读取与搜索条件相匹配的若干行，事务B以插入或删除行等方式来修改事务A的结果集，导致事务A看起来像出现幻觉一样，SERIALIZABLE事务隔离级别可避免
+      4. 幻读--SERIALIZABLE：事务A读取与搜索条件相匹配的若干行，事务B以插入或删除行等方式来修改事务A的结果集，导致事务A看起来像出现幻觉一样，SERIALIZABLE事务隔离级别可避免
       
          1. 成因：把两个session都设置为set session transaction isolation level read committed，都开启事务，session1使用当前读的方式查询一下，并加了一个共享锁，查出来20条记录，紧接着session2添加一条数据，发现在这个级别下，session2可以操作成功，提交，回到session1，给表的某个字段全部更新为'a'，这时发现，竟然有21行受影响，本来是对20条数据进行更新，现在变成了21条，这就出现了幻读
          
