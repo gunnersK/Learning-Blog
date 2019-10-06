@@ -83,7 +83,7 @@
    
       1. **更新丢失--READ UNCOMMITTED：** READ UNCOMMITTED事务隔离级别以上避免(mysql所有事务隔离级别在数据库层面上均可避免)
       
-      2. **脏读--READ-COMMITTED：**一个事务读到另一个事务未提交的更新数据，可以在READ-COMMITTED事务隔离级别以上避免
+      2. **脏读--READ-COMMITTED：** 一个事务读到另一个事务未提交的更新数据，可以在READ-COMMITTED事务隔离级别以上避免
       
          1. 查看当前隔离级别：select @@tx_isolation
          
