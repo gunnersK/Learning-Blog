@@ -118,6 +118,8 @@
             1. mysql：repeatable read
             
             2. Oracle：read committed
+            
+         4. 归纳一下四种事务隔离机制是如何用锁解决各种并发访问的问题的？
          
 
 4. InnoDB可重复读隔离级别下如何避免幻读
