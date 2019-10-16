@@ -67,7 +67,7 @@ https://blog.csdn.net/calledwww/article/details/79371040
 
 1. MyISAM与InnoDB关于锁方面的区别
 
-   1. MyISAM默认用表级锁，不支持行级锁，不支持事务，不支持外键；InnoDB默认用行级锁，也支持表级锁，支持事务，支持外键，是 MySQL 默认的事务型存储引擎·  
+   1. MyISAM默认用表级锁，不支持行级锁，不支持事务，不支持外键；InnoDB默认用行级锁，也支持表级锁，支持事务，支持外键，是 MySQL 默认的事务型存储引擎
    
    2. MyISAM引擎
    
