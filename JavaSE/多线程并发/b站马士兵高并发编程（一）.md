@@ -18,12 +18,20 @@
       3. 如果用synchronized修饰一个成员方法，那他锁住的是this；如果修饰一个static方法，那个锁住的是该类的class对象
 
    2. 
+      1. 匿名内部类写法
       ```
          new Thread(new Runnable()){
            public void run(){
              ....
            }
          }
+      ```
+      
+      2. lambda表达式写法
+      ```
+         new Thread(() -> {
+			
+		   }).start();
       ```
 
    3. 脏读
