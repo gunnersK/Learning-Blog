@@ -95,6 +95,8 @@ https://www.liaoxuefeng.com/wiki/896043488029600
 # 三、分支管理
 
    1. 前面版本的分支只要没新提交，合并后面版本的分支肯定不会冲突，如test分支新建test1分支，test1有新提交，test没有，那test合并test1不会冲突。如果test1和test都有新提交，那合并就可能会冲突
+      
+      可以结合https://www.liaoxuefeng.com/wiki/896043488029600/900004111093344 理解
          
 # 四、远程仓库
 
