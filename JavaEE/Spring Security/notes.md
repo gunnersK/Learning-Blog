@@ -42,7 +42,7 @@ https://github.com/wuyouzhuguli/SpringAll
                 MyUser user = new MyUser();
                 user.setUserName(username);
                 user.setPassword(this.passwordEncoder.encode("123456"));
-        //        user.setPassword("123456");
+              //        user.setPassword("123456");
                 // 输出加密后的密码
                 System.out.println(user.getPassword());
 
@@ -68,13 +68,13 @@ https://github.com/wuyouzhuguli/SpringAll
          ```
             @Override
             public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        //        response.setContentType("application/json;charset=utf-8");
-        //        response.getWriter().write(mapper.writeValueAsString(authentication));
+           //        response.setContentType("application/json;charset=utf-8");
+           //        response.getWriter().write(mapper.writeValueAsString(authentication));
 
                 SavedRequest savedRequest = requestCache.getRequest(request, response);
-        //        redirectStrategy.sendRedirect(request, response, savedRequest.getRedirectUrl());
-        //        redirectStrategy.sendRedirect(request, response, "/a.html");
-        //        redirectStrategy.sendRedirect(request, response, "/index");
+           //        redirectStrategy.sendRedirect(request, response, savedRequest.getRedirectUrl());
+           //        redirectStrategy.sendRedirect(request, response, "/a.html");
+           //        redirectStrategy.sendRedirect(request, response, "/index");
                 redirectStrategy.sendRedirect(request, response, "/auth/admin");
             }
          ```
@@ -94,7 +94,7 @@ https://github.com/wuyouzhuguli/SpringAll
 
                 @GetMapping("/index")
                 public Object index(Authentication authentication) {
-            //        return SecurityContextHolder.getContext().getAuthentication();
+                //        return SecurityContextHolder.getContext().getAuthentication();
                     return authentication;
                 }
 
