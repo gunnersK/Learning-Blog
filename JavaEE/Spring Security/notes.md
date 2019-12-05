@@ -152,5 +152,25 @@ https://github.com/wuyouzhuguli/SpringAll
       ```
       
    3. 在对应controller上打上@ResponseStatus(HttpStatus.UNAUTHORIZED)注解
+   
+# 五、关于OAuth2
+
+1. 大概理解：应用请求资源服务器,访问客户数据,在没有OAuth2的情况下,资源服务器区分不出请求过来的应用是恶意用户还是其他用户,数据都会返回. 有了OAuth2之后,使用授权服务器颁发给客户应用Access Token, 资源服务器拿到Access Token进行校验,验证通过之后才返回数据
+
+2. 打个比方：通过火狐用QQ帐号登录虎牙直播看视频，涉及到几个概念：
+
+   **1. Resource Owner 资源所有者，就是QQ的所有人，我自己**
+   
+   2. User Agent 用户代理，火狐
+   
+   3. HTTP service HTTP服务提供商，QQ
+   
+   **4. Authorization server 认证(授权)服务器，这里指QQ提供的第三方登录服务**
+   
+   **5. Third-party application 第三方应用程序，也就是客户端应用，指虎牙**
+   
+   **6. Resource server 资源服务器，指虎牙直播提供的服务，如视频资源**
+   
+3. 大概流程是这样的：客户应用向授权服务器请求Access Token ---> 授权服务器向用户征询意见,是否将权限授予客户应用 ---> 用户同意 ---> 授权服务器生成颁发Access Token给客户应用 ---> 客户应用请求资源服务器 ---> 资源服务器验证客户应用的Access Token ---> 验证通过，返回数据
       
    
