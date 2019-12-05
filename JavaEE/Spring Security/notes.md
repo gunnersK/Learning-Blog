@@ -108,11 +108,15 @@ https://github.com/wuyouzhuguli/SpringAll
          
 # 二、认证
 
+   https://mrbird.cc/Spring-Security-Authentication.html
+
    1. 在service中注入PasswordEncoder对象（先在config中配置）用于密码加密，然后再重写的loadUserByUsername方法中返回一个User，User中自定义认证规则
    
    2. 处理成功和失败的逻辑：分别实现AuthenticationSuccessHandler的onAuthenticationSuccess方法和AuthenticationFailureHandler的onAuthenticationFailure方法，在里面自定义逻辑
 
 # 三、授权
+
+   https://mrbird.cc/Spring-Security-Permission.html
 
    1. 在config中打上@EnableGlobalMethodSecurity(prePostEnabled = true)注解
    
@@ -132,6 +136,8 @@ https://github.com/wuyouzhuguli/SpringAll
          ```
 
 # 四、session管理
+
+   https://mrbird.cc/Spring-Security-Session-Manage.html
 
    1. 在yml文件中定义超时时间，最低不少于60s，如果设置少于60s，有效期也还是60s
 
