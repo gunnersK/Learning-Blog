@@ -1,0 +1,21 @@
+spring-security由几个部分组成：
+config：定义配置，如跳转登录页等
+controller：处理请求
+handler：一些情况发生时的处理流程，例如登录成功or失败，权限不足等
+service：自定义认证规则、授权等
+
+1. 自定义认证方式（自定义密码）
+   重写UserDetailsService的loadUserByUsername方法
+
+1. 替换默认登录页
+   未登录时访问任何路径都跳转到指定登录页 loginPage("/login.html")
+   默认自动加/static
+
+2. 自定义未登录访问跳转逻辑
+   带.html的跳转到登录页，否则返回json数据
+   loginPage("/authentication/require")
+   逻辑在/authentication/require里面写
+
+3. 登录成功后的处理逻辑
+   .successHandler(authenticationSucessHandler)
+   重写AuthenticationSuccessHandler的onAuthenticationSuccess方法
