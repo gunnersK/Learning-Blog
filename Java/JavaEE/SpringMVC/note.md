@@ -15,7 +15,7 @@
 
     - 验证类注解
     
-        - javax.validation.constraints包下有一些自带的注解，可对其修饰的变量进行验证，常见的有：
+        - javax.validation.constraints包下自带的注解，可对其修饰的变量进行验证，常见的有：
         
             - @Null -> 验证对象是否为null
             
@@ -27,7 +27,9 @@
             
             ....等等（ https://www.jianshu.com/p/71f70766d165 ）
             
-        - 也可以自定义注解类，自定义验证逻辑，注解类需要绑定指定的实现javax.validation包下ConstraintValidator接口的类，验证逻辑就在重写的isValid方法中写       
+        - 自定义验证类注解类
+        
+            - 自定义验证逻辑，注解类需要绑定指定的实现javax.validation包下ConstraintValidator接口的类，验证逻辑就在重写的isValid方法中写       
         
             - 自定义注解类
 
@@ -46,6 +48,8 @@
 
                     }
                 ```
+                
+                - 可以在message()方法定义验证未通过时默认的message，也可以在实体类属性用到注解的时候再定义message
 
             - 实现ConstraintValidator接口的类
 
@@ -68,9 +72,11 @@
                 
     - @Validated & BindingResult
     
-        - 通过@Validated注解去修饰带有验证类注解的类的参数，配合BindingResult，对请求参数进行验证
+        - 通过@Validated注解去修饰带有验证类注解的实体类的参数，配合BindingResult，对请求参数进行验证
         
         - BindingResult要紧跟在被@Validated注解的参数后面，他们是一一对应的，如果有多个@Validated，那么每个@Validated后面跟着的BindingResult就是这个@Validated的结果，顺序不能乱
+        
+        - result.hasErrors()判断是否验证通过，如果未通过，返回在实体类属性注解设置的自定义message，没有就返回验证注解类默认的message
     
         ```
             public Response create(@Validated({CreatedGroup.class}) @RequestBody AffPayoutReq req,BindingResult result)
@@ -80,7 +86,7 @@
             public class AffPayoutReqBase {
 
                 @NotBlank   //自带注解
-                @Numeric    //自定义注解，需要自己实现验证逻辑
+                @Numeric(message="....")    //自定义注解，需要自己实现验证逻辑，可以自定义message
                 private String offer_id;
         ```
         
