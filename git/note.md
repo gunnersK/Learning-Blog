@@ -104,7 +104,7 @@ https://www.liaoxuefeng.com/wiki/896043488029600
 
    1. 在使用远程仓库之前，首先要在github添加SSH key
 
-      1. 创建SSH key--ssh-keygen -t rsa -C "youremail@example.com"
+      1. 创建SSH key：ssh-keygen -t rsa -C "youremail@example.com"
 
       2. 创建完之后会在用户主目录创建.ssh目录，里面有id_rsa(私钥)和id_rsa.pub(公钥)两个文件
 
