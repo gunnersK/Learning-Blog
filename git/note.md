@@ -162,7 +162,7 @@ https://www.liaoxuefeng.com/wiki/896043488029600
       
 # 六、忽略特殊文件      
 
-   1. 在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件，配置文件可以参考https://github.com/github/gitignore
+   1. 在Git工作区的**根目录**下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件，配置文件可以参考https://github.com/github/gitignore
    
    2. .gitignore写法
    
