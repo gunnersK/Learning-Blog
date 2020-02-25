@@ -1,3 +1,5 @@
+
+
 # nginx主要就是学习配置文件
 
 ### 一、nginx的操作
@@ -27,18 +29,18 @@
       2. server_name  自定义域名
       
       3. location{}  配置资源路径
-    
+
 ### 三、location配置
 
    先来段代码
-   
+
    ```
       location / {
             root   html;
             index  index.html index.htm;
         }
    ```
-   
+
    1. location后面要定义正则表达式，表示请求路径匹配所定义的正则表达式则走这个location，实际上是对url做一次简单的过滤
    
       1. 上面代码location后面的 / 代表匹配所有形式的请求路径
@@ -63,13 +65,13 @@
    2. root是定义根文件夹，走这个location的请求就会到root后面定义的路径下去找资源
    
    3. index是默认欢迎项
-   
+
 ### 四、反向代理
 
    1. 在location中定义 proxy_pass 值
    
       1. proxy_pass后面定义要跳转的地址   
-     
+        
          例如：proxy_pass http://192.168.182.3:8080;
         
          这里的地址是一个tomcat。如果在jsp里直接通过request域拿请求端的ip，则拿到的实际是nginx的IP地址。因为nginx做了代理
@@ -104,10 +106,10 @@
          2. max_fails表示被认为宕机的连接失败的次数
          
          3. fail_timeout表示超过多久连接失败
-         
+      
    2. location{}配置
    
       1. 在location中定义 proxy_pass 值，值写upstream 名字{} 起的名字
       
       
-         
+      
