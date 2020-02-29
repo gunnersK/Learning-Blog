@@ -1,6 +1,7 @@
 # 一、 springboot整合Mybatis
-1. 单数据源
-   1. 配置properties文件
+
+- 单数据源
+   - 配置properties文件
       ```
          spring.datasource.url=jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8
          spring.datasource.username=root
@@ -9,19 +10,40 @@
          mybatis.mapper-locations=classpath:mapper/*.xml
       ```
    
-   2. 定义dao层，写mapper接口
+   - 定义dao层，写mapper接口
    
-   3. 配置mapper.xml文件，在resources文件夹下建一个mapper文件夹放进去，并且指定namespace为dao层的包路径
+   - 配置mapper.xml文件，在resources文件夹下建一个mapper文件夹放进去，并且指定namespace为dao层的包路径
    
-   4. 在mybatis的config类里面（如果有的话）和Application启动类打上@MapperScan注解扫描dao层的包路径
+   - 在mybatis的config类里面（如果有的话）和Application启动类打上@MapperScan注解扫描dao层的包路径
    
-   5. 如果使用springboot默认的数据源，则只需在application.properties文件中写配置信息，不用另外写Config类，因为它会自动配置数据源和mybatis相关配置，可以查看MybatisAutoConfiguration类源码，所以使用默认数据源时Config类不是必须的
+   - 如果使用springboot默认的数据源，则只需在application.properties文件中写配置信息，不用另外写Config类，因为它会自动配置数据源和mybatis相关配置，可以查看MybatisAutoConfiguration类源码，所以使用默认数据源时Config类不是必须的
    
-2. 多数据源  
-   1. 数据源的定义：数据源表示一个与数据库的连接（传统）或者表示很多与数据库的连接（使用数据库连接池）
+- 多数据源  
+
+   - 数据源的定义：数据源表示一个与数据库的连接（传统）或者表示很多与数据库的连接（使用数据库连接池）
+
+	- 多数据源配置思路：
+
+		- 看成四部分：   
+
+			- 上面java的：Mapper接口，config配置类
+
+			- 下面resources的：Mapper.xml，配置文件 
+
+		- 各部分的关系如下：
+
+			- Mapper接口 <- Mapper.xml <- config配置类 -> 配置文件  
+
+			- 在配置文件中统一定义多个数据源的配置
+
+			- 一个数据源一个config配置类，在config配置类中定义datasource的方法上用注解指定配置文件中的DataSource
+
+			- 在config配置类中扫描Mapper.xml的路径
+
+			- Mapper.xml的namespace定义Mapper接口的路径
    
-   2. 步骤
-      1. 配置yml文件
+   - 步骤
+      - 配置yml文件
          ```
             spring:
                  datasource:
@@ -39,8 +61,8 @@
                         password: 123456
          ```
       
-      2. 写Config类
-         1. 主库配置类（主库要在配置类方法上面加@Primary注解，从库不用）
+      - 写Config类
+         - 主库配置类（主库要在配置类方法上面加@Primary注解，从库不用）
             ```
                @Configuration
                @MapperScan(basePackages = "com.example.project.dao.master",sqlSessionTemplateRef = "masterSqlSessionTemplate")
@@ -83,7 +105,7 @@
                }
             ```
             
-         2. 从库配置类
+         - 从库配置类
             ```
                @Configuration
                @MapperScan(basePackages = "com.example.project.dao.cluster",sqlSessionTemplateRef = "clusterSqlSessionTemplate")
@@ -122,8 +144,8 @@
                }
             ```
          
-         3. 上面是针对使用默认数据源的配置，如果使用其他数据源，例如阿里的driud，只需做如下修改：
-            
-            1. 将配置类中创建DataSource的方法中的DataSourceBuilder改为DuridDataSourceBuilder
-            
-      3. 在resources文件夹下新建mapper文件夹，写mapper.xml文件         
+         - 上面是针对使用默认数据源的配置，如果使用其他数据源，例如阿里的driud，只需做如下修改：
+           
+            - 将配置类中创建DataSource的方法中的DataSourceBuilder改为DuridDataSourceBuilder
+         
+      - 在resources文件夹下新建mapper文件夹，写mapper.xml文件，namespace定义为mapper包的路径         
