@@ -1,9 +1,9 @@
-https://www.liaoxuefeng.com/wiki/896043488029600
+​	https://www.liaoxuefeng.com/wiki/896043488029600
 
 # 一、创建版本库与简单的提交修改
 
    1. git init--初始仓库
- 
+
    2. git add file1 file2--添加文件，等待提交
   
    3. git commit -m ""--提交文件，-m参数后面加提交的说明信息
@@ -23,9 +23,9 @@ https://www.liaoxuefeng.com/wiki/896043488029600
       1. commit c15c09dafe1a455acf6265a8a5005acc222a8852 这种数字是commit的id
       
    2. git reset--版本回退(代码回滚)    
-        
+      
       HEAD表示当前版本，HEAD^表示上个版本，HEAD^^表示上上个版本，上100个版本用HEAD~100表示
-       
+      
       1. 回退到之前某个版本--git reset --hard HEAD^
       
       2. 回退到之前某个版本之后要去未来某个版本--git reset --hard 未来版本的commit id前几位
@@ -37,7 +37,7 @@ https://www.liaoxuefeng.com/wiki/896043488029600
       3. 如果往上滚动，或者关机了重启电脑无法找到commit id的前几位，可以用--git reflog查看HEAD指针指向commit id的历史
       
       4. git log 和 reflog的区别：
-          
+         
          git log可以显示所有提交过的版本信息，不包括已经被删除的 commit 记录和 reset 的操作
 
          git reflog是显示所有的操作记录，包括提交，回退的操作。一般用来找出操作记录中的版本号，进行回退。
@@ -45,7 +45,7 @@ https://www.liaoxuefeng.com/wiki/896043488029600
          git reflog常用于恢复本地的错误操作。
 
             场景：我们commit了一个操作，发现提交的是错误的，我们进行了回退，git reset HEAD^,也进行了checkout 操作，就是把工作区的文件也回退还原了，                 这时候发现commit的没有问题。等于说删了不该删的了，咋整，想再回退到删除之前的。找到之前的版本号进行回退，使用git log发现那个提交的版本号记录根本不存在了，这时候就可以用reflog了。
-            
+      
    3. 工作区和暂存区
       
       1. 工作区：仓库目录就是工作区
@@ -81,7 +81,7 @@ https://www.liaoxuefeng.com/wiki/896043488029600
          在工作区修改a.txt文件，并且add到暂存区，还没commit，再次修改a.txt文件，这时想撤回到第一次修改后的状态，用git checkout -- a.txt，回到添加到暂存区后的状态（回到最近一次git add的状态）
          
          修改完a.txt文件，add到暂存区，想要撤回暂存区的内容，重新放回工作区修改，用git reset HEAD readme.txt
-         
+      
    6. 删除文件
    
       1. 在工作区手动把文件删了，然后用git add a.txt或者git rm a.txt，暂时理解为保存到暂存区，然后git commit提交到版本库，把版本库对应文件删了
@@ -97,7 +97,7 @@ https://www.liaoxuefeng.com/wiki/896043488029600
    1. 前面版本的分支只要没新提交，合并后面版本的分支肯定不会冲突，如test分支新建test1分支，test1有新提交，test没有，那test合并test1不会冲突。如果test1和test都有新提交，那合并就可能会冲突
       
       可以结合https://www.liaoxuefeng.com/wiki/896043488029600/900004111093344 理解
-         
+      
 # 四、远程仓库
 
    可以在github远程建库然后在本地克隆，也可以在本地建库然后关联github的仓库然后推送本地的内容上去，前提都要在github添加SSH key
@@ -175,8 +175,8 @@ https://www.liaoxuefeng.com/wiki/896043488029600
       build/ 　　 # 忽略 build/ 目录下的所有文件
       
       doc/*.txt 　　# 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
-   
-   
+
+
    3. .gitignore文件规则不生效解决方法
 
       把某些目录或文件加入忽略规则，按照上述方法定义后发现并未生效，原因是.gitignore只能忽略那些原来没有被追踪的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。那么解决方法就是先把本地缓存删除（改变成未被追踪状态），然后再提交：
@@ -190,7 +190,7 @@ https://www.liaoxuefeng.com/wiki/896043488029600
       
 
    
-   
-         
-      
-         
+
+
+​      
+​         
