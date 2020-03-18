@@ -12,6 +12,8 @@
 
 	- 当应用程序需要部署到不同运行环境时，通常需要每次发布的时候都替换掉配置文件，使用profile可以解决这种麻烦
 
+	- 在SpringBoot开发环境中，配置文件名称需要满足 application-{profile}.properties格式。其中，{profile}表示环境名称
+
 - 定时任务
 
 	- 要使用定时功能时，需要在启动类上面加上@EnableScheduling
