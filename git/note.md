@@ -1,4 +1,4 @@
-​	https://www.liaoxuefeng.com/wiki/896043488029600
+	https://www.liaoxuefeng.com/wiki/896043488029600
 
 # 一、创建版本库与简单的提交修改
 
@@ -147,6 +147,8 @@
       3. git push origin dev
 
       4. git push 是推送当前分支到服务器，push之前最好先检查自己所在的分支
+
+	  5. 如果本地分支回滚了，push会冲突，可在push加上-f参数强制回滚远程分支
 
    2. pull
 
