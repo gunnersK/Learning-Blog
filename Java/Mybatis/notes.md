@@ -1,4 +1,4 @@
-# 动态sql
+## 动态sql
 
 - where标签
 
@@ -57,3 +57,26 @@
         </select>
     ```
 	
+## javaType和jdbcType对应
+
+- javaType="double" jdbcType="NUMERIC"
+
+- javaType="string" jdbcType="VARCHAR"
+
+- javaType="java.sql.Date" jdbcType="DATE"
+
+- javaType="int" jdbcType="INTEGER"
+
+- javaType="double" jdbcType="DOUBLE"
+
+- javaType="long" jdbcType="INTEGER"
+
+- javaType="string" jdbcType="CHAR"
+
+- javaType="[B" jdbcType="BLOB"
+
+- javaType="string" jdbcType="CLOB"
+
+- javaType="float" jdbcType="FLOAT"
+
+- javaType="java.sql.Timestamp" jdbcType="TIMESTAMP"

@@ -1,7 +1,7 @@
-1.¶ÔÓÚ·Ö×éÄÚÈ¡Ç°¼¸ÃûµÄÎÊÌâ£¬¿ÉÒÔÓÃgroup by·Ö×éÈ»ºóÓÃhaving count()À´É¸Ñ¡
-  ÀıÌâ£ºÈ¡²¿ÃÅ¹¤×ÊÇ°Èı¸ßµÄÔ±¹¤  
-            Employee±í£ºId Name Salary DepartmentId
-            Department±í£ºId Name
+1.å¯¹äºåˆ†ç»„å†…å–å‰å‡ åçš„é—®é¢˜ï¼Œå¯ä»¥ç”¨group byåˆ†ç»„ç„¶åç”¨having count()æ¥ç­›é€‰
+  ä¾‹é¢˜ï¼šå–éƒ¨é—¨å·¥èµ„å‰ä¸‰é«˜çš„å‘˜å·¥  
+            Employeeè¡¨ï¼šId Name Salary DepartmentId
+            Departmentè¡¨ï¼šId Name
 	select d.Name Department, e.Name Employee, e.Salary 
 	from Employee e inner join Department d 
 	on e.DepartmentId = d.Id
@@ -13,6 +13,17 @@
    		 having count(distinct(e2.Salary)) <= 2
 	)
 	order by d.Id asc,e.Salary desc
-     ×Ü½á£ºÖ÷ÒªÊÇµ¥±íÄÚÁ¬½ÓµÄÊ¹ÓÃ£¬ÏÈÍ³¼ÆÃ¿¸öÔ±¹¤¹¤×Ê±ÈËû¸ßµÄÓĞ¶àÉÙÈË£¬Èç¹ûÈËÊı<=2£¬
-               ËµÃ÷Õâ¸öÔ±¹¤µÄ¹¤×Ê¾ÍÊÇÇ°Èı
-     ÀıÌâÀ´Ô´£ºhttps://leetcode-cn.com/problems/department-top-three-salaries/
+     æ€»ç»“ï¼šä¸»è¦æ˜¯å•è¡¨å†…è¿æ¥çš„ä½¿ç”¨ï¼Œå…ˆç»Ÿè®¡æ¯ä¸ªå‘˜å·¥å·¥èµ„æ¯”ä»–é«˜çš„æœ‰å¤šå°‘äººï¼Œå¦‚æœäººæ•°<=2ï¼Œ
+               è¯´æ˜è¿™ä¸ªå‘˜å·¥çš„å·¥èµ„å°±æ˜¯å‰ä¸‰
+     ä¾‹é¢˜æ¥æºï¼šhttps://leetcode-cn.com/problems/department-top-three-salaries/
+
+## SQLä¹¦å†™è§„èŒƒ
+
+- SELECT/FROM/WHERE/ORDER BY/GROUP BYç­‰å­å¥åº”ç‹¬å ä¸€è¡Œ
+
+- SELECT/FROM/WHEREå­å¥å†…å®¹å¦‚æœåªæœ‰ä¸€é¡¹ï¼Œåº”ä¸ å…³é”®å­— åŒå ä¸€è¡Œ;å¦‚æœå¤šäºä¸€é¡¹ï¼Œæ¯ä¸€é¡¹éƒ½åº”ç‹¬å ä¸€è¡Œ(WHEREå­å¥è¦ä»¥ANDå¼€å¤´)
+
+## MySQLå‡½æ•°
+
+- name LIKE concat('%', ?, '%') 
+

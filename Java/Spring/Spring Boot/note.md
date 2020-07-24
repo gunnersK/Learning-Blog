@@ -6,6 +6,8 @@
 
 		- 命令行中连续的两个减号--就是对application.properties中的属性值进行赋值的标识。
 
+	- 可以定义日志信息输出到指定文件
+
 	- https://www.jianshu.com/p/43e4a5f50239
 
 - Profile-多环境配置
@@ -17,3 +19,4 @@
 - 定时任务
 
 	- 要使用定时功能时，需要在启动类上面加上@EnableScheduling
+
