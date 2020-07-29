@@ -98,6 +98,11 @@
       
       可以结合https://www.liaoxuefeng.com/wiki/896043488029600/900004111093344 理解
       
+- 从其他分支提取指定文件
+	```
+	git checkout [branch] -- [file]
+	```
+  
 # 四、远程仓库
 
    可以在github远程建库然后在本地克隆，也可以在本地建库然后关联github的仓库然后推送本地的内容上去，前提都要在github添加SSH key
