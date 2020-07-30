@@ -15,6 +15,10 @@
 	- 当应用程序需要部署到不同运行环境时，通常需要每次发布的时候都替换掉配置文件，使用profile可以解决这种麻烦
 
 	- 在SpringBoot开发环境中，配置文件名称需要满足 application-{profile}.properties格式。其中，{profile}表示环境名称
+	- 启动时制定环境
+		```
+		--spring.profiles.active=env
+		```
 
 - 定时任务
 
