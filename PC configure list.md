@@ -5,7 +5,7 @@
 ### 内存
 - <a href="https://item.jd.com/100007628368.html?extension_id=eyJhZCI6IiIsImNoIjoiIiwic2hvcCI6IiIsInNrdSI6IiIsInRzIjoiIiwidW5pcWlkIjoie1wiY2xpY2tfaWRcIjpcImQ3NGFiMmI2LWYwZjgtNDhhYi05MjRhLTQ2N2JhOTBmODA4ZlwiLFwicG9zX2lkXCI6XCIxNTBcIixcInNpZFwiOlwiOGE2Yzc0MTctYWI3Yi00Y2ViLWI1MGItNDY4ZDdmYTA5OWRkXCIsXCJza3VfaWRcIjpcIjEwMDAwNzYyODM2OFwifSJ9&jd_pop=d74ab2b6-f0f8-48ab-924a-467ba90f808f&abt=3">金士顿(Kingston) DDR4 3200 32G</a> --¥1099  
 ### 硬盘
-- <a href="https://https://item.jd.com/100003181110.html?extension_id=eyJhZCI6IiIsImNoIjoiIiwic2hvcCI6IiIsInNrdSI6IiIsInRzIjoiIiwidW5pcWlkIjoie1wiY2xpY2tfaWRcIjpcImU0ZjRmMmZmLTFmMzUtNDk3Ni04ZTk1LWU5NTZkMDVjZDNlNVwiLFwicG9zX2lkXCI6XCIxNTBcIixcInNpZFwiOlwiOTQ3ZGZkODctYzRmZi00ODBhLWFiMzktNDBiNDIwMTdjYzRiXCIsXCJza3VfaWRcIjpcIjEwMDAwMzE4MTExMFwifSJ9&jd_pop=e4f4f2ff-1f35-4976-8e95-e956d05cd3e5&abt=3">三星（SAMSUNG）500GB SSD固态硬盘</a> --¥669
+- <a href="https://item.jd.com/100003181110.html?extension_id=eyJhZCI6IiIsImNoIjoiIiwic2hvcCI6IiIsInNrdSI6IiIsInRzIjoiIiwidW5pcWlkIjoie1wiY2xpY2tfaWRcIjpcImU0ZjRmMmZmLTFmMzUtNDk3Ni04ZTk1LWU5NTZkMDVjZDNlNVwiLFwicG9zX2lkXCI6XCIxNTBcIixcInNpZFwiOlwiOTQ3ZGZkODctYzRmZi00ODBhLWFiMzktNDBiNDIwMTdjYzRiXCIsXCJza3VfaWRcIjpcIjEwMDAwMzE4MTExMFwifSJ9&jd_pop=e4f4f2ff-1f35-4976-8e95-e956d05cd3e5&abt=3">三星（SAMSUNG）500GB SSD固态硬盘</a> --¥669
 ### 电源
 - <a href="https://item.jd.com/7404000.html?extension_id=eyJhZCI6IiIsImNoIjoiIiwic2hvcCI6IiIsInNrdSI6IiIsInRzIjoiIiwidW5pcWlkIjoie1wiY2xpY2tfaWRcIjpcImMyODY5YWVhLTdlNzctNDA4Ny1iOTExLTM1ZDUzNzE4OWEzNFwiLFwicG9zX2lkXCI6XCIxNTBcIixcInNpZFwiOlwiOTkyOWFhNDItYjZjZS00ZTIxLWI3Y2UtYjZmZmVmZDBhZTg2XCIsXCJza3VfaWRcIjpcIjc0MDQwMDBcIn0ifQ==&jd_pop=c2869aea-7e77-4087-b911-35d537189a34&abt=3#crumb-wrap">全汉（FSP）额定600W 经典版MS600</a> --¥629 
 ### 散热
