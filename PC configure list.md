@@ -1,3 +1,4 @@
+- tips：后端开发，纯写代码、跑程序，不打机不看视频~
 ### 主板
 - <a href="https://item.jd.com/100013779406.html">微星 MSI MAG B550M MORTAR WIFI迫击炮电脑主板</a> --¥819     
 ### CPU
