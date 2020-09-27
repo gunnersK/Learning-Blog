@@ -17,3 +17,9 @@
 - <a href="https://item.jd.com/6241719.html">AOC 27英寸 2K</a> --¥1349
 ### 亮机卡
 - <a href="https://item.jd.com/59942862895.html">GT610</a> --¥169
+### 鼠标
+- <a href="https://item.jd.com/6027207.html">英菲克（INPHIC）PM6 无线鼠标</a> --¥39.9
+### 键盘
+- <a href="https://item.jd.com/4676035.html#crumb-wrap">航世（B.O.W）HW192C 可充电金属办公无线键盘</a> --¥119
+### HDMI线
+- <a href="https://detail.tmall.com/item.htm?spm=a230r.1.14.69.296951bfk6rgxU&id=624731558754&ns=1&abbucket=11&skuId=4423148720125">惠普hdmi线2.0高清线</a> --¥119
