@@ -22,4 +22,4 @@
 ### 键盘
 - <a href="https://item.jd.com/4676035.html#crumb-wrap">航世（B.O.W）HW192C 可充电金属办公无线键盘</a> --¥119
 ### HDMI线
-- <a href="https://detail.tmall.com/item.htm?spm=a230r.1.14.69.296951bfk6rgxU&id=624731558754&ns=1&abbucket=11&skuId=4423148720125">惠普hdmi线2.0高清线</a> --¥119
+- <a href="https://detail.tmall.com/item.htm?spm=a230r.1.14.69.296951bfk6rgxU&id=624731558754&ns=1&abbucket=11&skuId=4423148720125">惠普hdmi线2.0高清线</a> --¥18.9
