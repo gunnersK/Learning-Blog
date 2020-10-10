@@ -14,7 +14,7 @@
          3. 高并发：concurrenthashmap
          
          4. 高并发+排序：concurrentskiplistmap
-	 
+	
       3. 代码：
       
          ```
@@ -50,9 +50,8 @@
 					System.out.println(end - start);
 				}
 			}
-		 ```
+		```
       
-         
 2. CopyOnWriteList(写时复制) 写慢读快  适合写的很少，读的特别特别多。复制一份出来再新增元素  读不用加锁
 
 3. SynchronizedList(Collection)
@@ -64,7 +63,7 @@
    2. Queue方法
    
       1. poll()：拿出来删除
-            
+         
       2. peek()：拿出来不删除 
       
       3. add()：放进去，但在一些有容量限制的Queue实现里面这个方法会抛异常
@@ -145,4 +144,4 @@
 
                   }
                ```
-看到04完	       
+					看到04完	       
