@@ -138,8 +138,9 @@
    3. 克隆远程仓库到本地：
 
       1. git clone git@github.com:gunnersK/yzl.git
-      
       2. 拉下来之后只有master分支，如果需要拉其他分支，先在本地创建并切换到一个同名分支，然后再pull远程的分支下来
+      
+   4. 解决每次提交都要用户名密码：git config --global credential.helper store
 
 # 五、多人协作（拉取推送）
 
