@@ -5,7 +5,7 @@ TCP/IP详解
          Proto  Local Address          Foreign Address        State            PID
          ====  ============      ==============  ==========  ======
          TCP    0.0.0.0:80                    0.0.0.0:0                LISTENING      1688
-      >	askkill /pid 1688 /F
+      >	taskkill /pid 1688 /F
 
 
 
